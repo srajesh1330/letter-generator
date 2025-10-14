@@ -18,105 +18,86 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
 body { font-family: 'Roboto', sans-serif; background-color: #f3f4f6; min-height: 100vh; }
-.ad-placeholder { background-color: #e0e0e0; border: 2px dashed #9e9e9e; display: flex; justify-content:center; align-items:center; color:#757575; font-weight:600; text-align:center; margin-bottom:24px;}
-.loader {border:4px solid #f3f3f3;border-radius:50%;border-top:4px solid #3b82f6;width:20px;height:20px;animation:spin 1s linear infinite;}
-@keyframes spin {0% {transform: rotate(0deg);}100% {transform: rotate(360deg);}}
-textarea, select, input {transition: all 0.2s; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.07);}
-textarea:focus, select:focus, input:focus {box-shadow: 0 0 0 3px rgba(59,130,246,0.3);}
+.ad-placeholder { background-color: #e0e0e0; border:2px dashed #9e9e9e; color:#757575; display:flex; align-items:center; justify-content:center; font-weight:600; margin-bottom:24px; }
+.loader { border:4px solid #f3f3f3; border-radius:50%; border-top:4px solid #3b82f6; width:20px; height:20px; animation:spin 1s linear infinite; }
+@keyframes spin { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+textarea, select, input { transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.07);}
+textarea:focus, select:focus, input:focus { box-shadow: 0 0 0 3px rgba(59,130,246,0.3);}
 </style>
 </head>
 <body class="p-4 sm:p-8 flex justify-center">
 
-<!-- Loading Indicator -->
-<div id="loadingIndicator" class="fixed hidden bg-blue-600 text-white p-6 rounded-xl shadow-2xl w-48 text-center" style="z-index:1001; top:50%; left:50%; transform:translate(-50%,-50%);">
-  <div class="loader mx-auto mb-3"></div>
-  <p class="font-semibold">Drafting Letter...</p>
-</div>
-
-<!-- Main Content -->
 <div class="w-full max-w-2xl bg-white shadow-2xl rounded-xl p-6 sm:p-10 border-t-8 border-blue-600">
-
 <h1 class="text-3xl font-extrabold text-blue-700 mb-2 text-center">AI Letter & Email Generator</h1>
 <p class="text-center text-gray-500 mb-6">Create professional and personal correspondence instantly.</p>
 
-<!-- Top Ad Placeholder -->
+<!-- Top Ad -->
 <div class="ad-placeholder h-20 w-full rounded-lg">AdSense Top Banner Ad (728x90)</div>
 
 <!-- Input Form -->
 <div class="space-y-6">
   <div>
-    <label for="topicInput" class="block text-sm font-medium text-gray-700 mb-2">Purpose of this letter/email:</label>
+    <label class="block text-sm font-medium text-gray-700 mb-2">Purpose of Letter/Email</label>
     <input type="text" id="topicInput" placeholder="e.g., Requesting a raise" class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500" required>
   </div>
 
   <div class="flex flex-col sm:flex-row gap-6">
     <div class="flex-1">
-      <label for="toneSelect" class="block text-sm font-medium text-gray-700 mb-2">Select Tone:</label>
+      <label class="block text-sm font-medium text-gray-700 mb-2">Select Tone:</label>
       <select id="toneSelect" class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500">
-        <option value="Professional">Professional</option>
+        <option value="Professional">Professional (Default)</option>
         <option value="Formal">Formal and Strict</option>
-        <option value="Friendly">Friendly</option>
-        <option value="Persuasive">Persuasive</option>
-        <option value="Sympathetic">Sympathetic</option>
-        <option value="Humorous">Humorous</option>
+        <option value="Friendly">Casual and Friendly</option>
+        <option value="Persuasive">Persuasive and Assertive</option>
+        <option value="Sympathetic">Sympathetic and Soft</option>
+        <option value="Humorous">Humorous and Lighthearted</option>
       </select>
     </div>
     <div class="flex-1">
-      <label for="lengthSelect" class="block text-sm font-medium text-gray-700 mb-2">Select Length:</label>
+      <label class="block text-sm font-medium text-gray-700 mb-2">Select Length:</label>
       <select id="lengthSelect" class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500">
         <option value="Short">Short (2-3 paragraphs)</option>
-        <option value="Medium">Medium (3-4 paragraphs)</option>
+        <option value="Medium">Medium (3-4 paragraphs, Default)</option>
         <option value="Long">Long (5+ paragraphs)</option>
       </select>
     </div>
   </div>
 
   <div>
-    <label for="detailsInput" class="block text-sm font-medium text-gray-700 mb-2">Key details:</label>
+    <label class="block text-sm font-medium text-gray-700 mb-2">Key Details (Names, Dates, Reasons)</label>
     <textarea id="detailsInput" rows="4" placeholder="e.g., To my boss John Smith, I started in 2020, and I need a 10% raise." class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500"></textarea>
   </div>
 
-  <button id="generateBtn" class="w-full py-3 bg-blue-600 text-white font-bold text-lg rounded-lg shadow-md hover:bg-blue-700 transition duration-200 flex items-center justify-center">Generate Letter/Email Draft</button>
+  <button id="generateBtn" class="w-full py-3 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 flex items-center justify-center">
+    Generate Letter/Email Draft
+  </button>
 </div>
 
 <!-- Output -->
 <div class="mt-10">
 <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Your AI Draft:</h2>
 <div id="outputCard" class="bg-gray-50 p-6 rounded-xl shadow-inner border border-gray-200 min-h-[250px] whitespace-pre-wrap">
-<p id="outputContent" class="text-gray-700 leading-relaxed italic">Your generated letter or email will appear here.</p>
+<p id="outputContent" class="text-gray-700 leading-relaxed italic">
+Your generated letter or email will appear here. Start by filling out the form above!
+</p>
 </div>
 <button id="copyBtn" class="mt-4 w-full py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-200" style="display:none;">Copy Draft to Clipboard</button>
 </div>
 
-<!-- Bottom Ad Placeholder -->
+<!-- Bottom Ad -->
 <div class="ad-placeholder h-32 w-full mt-8 rounded-lg">AdSense Content Ad (300x250)</div>
 
-<!-- Footer -->
+<!-- Footer Links -->
 <div class="mt-4 pt-4 border-t border-gray-200 text-center">
-  <a href="privacy_policy.html" class="text-xs text-blue-600 hover:text-blue-800 mx-2">Privacy Policy</a>
-  <span class="text-xs text-gray-400">|</span>
-  <a href="#" id="openContactModal" class="text-xs text-blue-600 hover:text-blue-800 mx-2">Contact Us</a>
+<a href="privacy_policy.html" class="text-xs text-blue-600 hover:text-blue-800 mx-2">Privacy Policy</a>
+<span class="text-xs text-gray-400">|</span>
+<a href="contact_us.html" class="text-xs text-blue-600 hover:text-blue-800 mx-2">Contact Us</a>
 </div>
 <p class="text-xs text-gray-400 text-center mt-4">Powered by Gemini AI</p>
-
-</div>
-
-<!-- Contact Form Modal -->
-<div id="contactModal" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div class="bg-white p-6 rounded-xl max-w-xl w-full relative">
-    <button id="closeContactModal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 font-bold text-lg">&times;</button>
-    <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
-    <form id="contactForm" action="mailto:srajesh1330@gmail.com?subject=Inquiry%20about%20Letter%20Generator" method="POST" enctype="text/plain" class="space-y-4">
-      <input type="text" name="Name" placeholder="Your Name" required class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-blue-500">
-      <input type="email" name="Email" placeholder="Your Email" required class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-blue-500">
-      <textarea name="Message" rows="4" placeholder="Your Message" required class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-blue-500"></textarea>
-      <button type="submit" class="w-full py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">Send Message</button>
-    </form>
-  </div>
 </div>
 
 <script>
-const apiKey = ""; // Paste your Gemini API Key here
+const apiKey = "PASTE_YOUR_GEMINI_API_KEY_HERE"; 
 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
 const topicInput = document.getElementById('topicInput');
@@ -126,76 +107,49 @@ const detailsInput = document.getElementById('detailsInput');
 const generateBtn = document.getElementById('generateBtn');
 const outputContent = document.getElementById('outputContent');
 const copyBtn = document.getElementById('copyBtn');
-const loadingIndicator = document.getElementById('loadingIndicator');
+const loadingIndicator = null; // optional loader
 
-// Loading
-function showLoading(state){
-  loadingIndicator.classList.toggle('hidden',!state);
-  generateBtn.disabled=state;
-  generateBtn.classList.toggle('opacity-50',state);
+function showCustomMessage(msg, isError=false) {
+  alert(msg);
 }
 
-// Custom message
-function showCustomMessage(msg,isError=false){
-  const tempDiv=document.createElement('div');
-  tempDiv.textContent=msg;
-  tempDiv.className=`fixed bottom-4 left-1/2 transform -translate-x-1/2 ${isError?'bg-red-600':'bg-green-600'} text-white px-4 py-2 rounded-lg shadow-xl z-50`;
-  document.body.appendChild(tempDiv);
-  setTimeout(()=>{tempDiv.remove();},3000);
+function copyDraft() {
+  navigator.clipboard.writeText(outputContent.textContent.trim()).then(()=>{
+    showCustomMessage("Draft copied to clipboard!");
+  });
 }
 
-// Copy draft
-function copyDraft(){
-  const textToCopy=outputContent.textContent.trim();
-  const tempInput=document.createElement('textarea');
-  document.body.appendChild(tempInput);
-  tempInput.value=textToCopy;
-  tempInput.select();
-  try{document.execCommand('copy'); showCustomMessage('Draft copied!');}catch(e){showCustomMessage('Copy failed',true);}finally{document.body.removeChild(tempInput);}
-}
+async function fetchDraft() {
+  const topic = topicInput.value.trim();
+  if(!topic){ showCustomMessage("Please enter the purpose.", true); return; }
+  outputContent.textContent = "Generating draft...";
+  copyBtn.style.display="none";
 
-// Fetch AI draft
-async function fetchDraft(){
-  const topic=topicInput.value.trim();
-  const tone=toneSelect.value;
-  const length=lengthSelect.value;
-  const details=detailsInput.value.trim();
-  if(!topic){showCustomMessage("Enter purpose of letter/email.",true); return;}
-  showLoading(true);
-  outputContent.textContent='Generating draft...';
-  copyBtn.style.display='none';
+  const payload = {
+    contents: [{parts:[{text:`Write a ${toneSelect.value} letter/email (${lengthSelect.value}) for purpose: "${topic}", details: "${detailsInput.value || 'No details'}"`}]}],
+    systemInstruction: {parts:[{text:"You are a professional letter/email writer."}]}
+  };
 
-  const systemPrompt=`You are a professional writer. Generate a ${tone} letter/email of ${length} including details: "${details || 'No details'}". Use placeholders [Sender Name], [Recipient Name], [Date]. Output only text.`;
-  const userQuery=`Purpose: "${topic}". Details: "${details || 'No details'}"`;
-  const payload={contents:[{parts:[{text:userQuery}]}], systemInstruction:{parts:[{text:systemPrompt}]}};
-
-  let resultText="Error: Failed to generate draft.";
   try{
-    const response = await fetch(apiUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    if(response.ok){
-      const result=await response.json();
-      resultText=result.candidates?.[0]?.content?.parts?.[0]?.text||resultText;
-    }
-  }catch(e){console.error(e);}
-  showLoading(false);
-  outputContent.textContent=resultText;
-  if(!resultText.startsWith("Error:")) copyBtn.style.display='block';
-
-  // GA4 event
-  gtag('event','generate_draft',{event_category:'AI Generator', event_label:topic});
+    const res = await fetch(apiUrl,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    const data = await res.json();
+    const result = data.candidates?.[0]?.content?.parts?.[0]?.text || "Error generating draft.";
+    outputContent.textContent=result;
+    copyBtn.style.display="block";
+  }catch(e){
+    console.error(e);
+    outputContent.textContent="Error connecting to AI service.";
+  }
 }
 
-generateBtn.addEventListener('click',fetchDraft);
-copyBtn.addEventListener('click',copyDraft);
-
-// Contact Modal
-const contactModal=document.getElementById('contactModal');
-document.getElementById('openContactModal').addEventListener('click',()=>contactModal.classList.remove('hidden'));
-document.getElementById('closeContactModal').addEventListener('click',()=>contactModal.classList.add('hidden'));
-
-// GA4 event for contact form submission
-document.getElementById('contactForm').addEventListener('submit',()=>gtag('event','contact_form_submit',{event_category:'Contact', event_label:'Contact Form'}));
-
+window.onload = () => {
+  generateBtn.addEventListener('click', fetchDraft);
+  copyBtn.addEventListener('click', copyDraft);
+};
 </script>
 </body>
 </html>
