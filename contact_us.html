@@ -4,52 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | AI Letter Generator</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Contact the AI Letter & Email Generator team for inquiries, feedback, or advertising opportunities.">
-    <meta name="keywords" content="Contact, AI Letter Generator, Feedback, Advertising, AdSense">
-    <meta name="author" content="Rajeshwaran Subramaniam">
-    <meta name="robots" content="index, follow">
-
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="cNv1Y5R8JVs3zChCpc2ela9h9zJ_wtt8tD5f0b6Sjp4" />
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BYT4WDW4Z"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5BYT4WDW4Z');
-    </script>
-
-    <!-- TailwindCSS -->
+    <meta name="description" content="Contact the AI Letter & Email Generator team for support, inquiries, or advertising questions. Send your message directly to our email.">
+    <meta name="keywords" content="contact, AI letter generator, support, inquiries, AdSense, feedback">
     <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f3f4f6;
-            min-height: 100vh;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; background-color: #f3f4f6; }
     </style>
 </head>
 <body class="p-4 sm:p-12 flex justify-center">
     <div class="w-full max-w-xl bg-white shadow-2xl rounded-xl p-6 sm:p-10 border-t-8 border-blue-600">
-
         <a href="index.html" class="text-sm text-blue-600 hover:text-blue-800 mb-6 inline-block">&larr; Back to Generator</a>
-
+        
         <h1 class="text-3xl font-extrabold text-gray-800 mb-2">Contact Us</h1>
         <p class="text-gray-600 mb-8">
-            We value your feedback and questions regarding the AI Letter & Email Generator, including any inquiries about advertising (AdSense) or privacy.
+            Have questions or feedback about the AI Letter & Email Generator? Send us a message using the form below. We’ll respond directly to your email.
         </p>
 
-        <!-- FormSubmit Contact Form -->
+        <!-- FormSubmit form -->
         <form action="https://formsubmit.co/srajesh1330@gmail.com" method="POST" class="space-y-4">
-            <!-- Protect your email from bots -->
-            <input type="hidden" name="_captcha" value="false">
+            <!-- Hidden input to customize email subject -->
             <input type="hidden" name="_subject" value="Inquiry about AI Letter Generator">
+            <!-- Hidden input to redirect to thank-you page after submission -->
+            <input type="hidden" name="_next" value="https://srajesh1330.github.io/letter-generator/thank_you.html">
 
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
@@ -72,9 +49,8 @@
         </form>
 
         <p class="text-sm text-gray-500 mt-6">
-            Note: Your message will be sent securely via FormSubmit. No server-side code is required.
+            Your message will be sent securely via FormSubmit. No server setup is required.
         </p>
-
     </div>
 </body>
 </html>
