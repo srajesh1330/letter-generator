@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Letter Generator | Create Professional Letters & Emails</title>
-
-    <!-- SEO Meta Tags -->
+    <title>AI Letter & Email Generator | Create Professional Letters</title>
     <meta name="description" content="Generate professional letters and emails instantly using our free AI letter generator. Perfect for work, school, or personal use.">
-    <meta name="keywords" content="AI letter generator, AI email generator, professional letter writing, free AI email tool, online letter generator">
-    <meta name="author" content="Rajeshwaran Subramaniam">
-    <meta name="robots" content="index, follow">
-
-    <!-- Google Search Console Verification -->
+    <meta name="keywords" content="AI letter generator, AI email generator, professional letters, free AI letter creator, online letter generator">
     <meta name="google-site-verification" content="cNv1Y5R8JVs3zChCpc2ela9h9zJ_wtt8tD5f0b6Sjp4" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BYT4WDW4Z"></script>
@@ -23,42 +20,17 @@
       gtag('config', 'G-5BYT4WDW4Z');
     </script>
 
-    <!-- TailwindCSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f3f4f6;
-            min-height: 100vh;
-        }
-        .ad-placeholder {
-            background-color: #e0e0e0;
-            border: 2px dashed #9e9e9e;
-            color: #757575;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 4px solid #3b82f6;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-        }
+        body { font-family: 'Roboto', sans-serif; background-color: #f3f4f6; min-height: 100vh; }
+        .ad-placeholder { background-color: #e0e0e0; border: 2px dashed #9e9e9e; color: #757575; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 600; text-align: center; margin-bottom: 24px; }
+        .loader { border: 4px solid #f3f3f3; border-radius: 50%; border-top: 4px solid #3b82f6; width: 20px; height: 20px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         textarea, select, input { transition: all 0.2s; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.07); }
         textarea:focus, select:focus, input:focus { box-shadow: 0 0 0 3px rgba(59,130,246,0.3); }
     </style>
 </head>
-<body class="p-4 sm:p-8 flex justify-center">
+<body class="p-4 sm:p-8 flex justify-center flex-col items-center">
 
     <!-- Loading Indicator -->
     <div id="loadingIndicator" class="fixed hidden bg-blue-600 text-white p-6 rounded-xl shadow-2xl transition-opacity duration-300 w-48 text-center" style="z-index:1001; top:50%; left:50%; transform:translate(-50%, -50%);">
@@ -66,19 +38,18 @@
         <p class="font-semibold">Drafting Letter...</p>
     </div>
 
-    <!-- Main Container -->
+    <!-- Main Content -->
     <div class="w-full max-w-2xl bg-white shadow-2xl rounded-xl p-6 sm:p-10 border-t-8 border-blue-600">
 
         <h1 class="text-3xl font-extrabold text-blue-700 mb-2 text-center">AI Letter & Email Generator</h1>
-        <p class="text-center text-gray-500 mb-6">
-            Generate professional letters and emails instantly with our AI email generator. Save time and write better messages.
-        </p>
+        <p class="text-center text-gray-500 mb-6">Create professional and personal correspondence instantly.</p>
 
         <!-- Top Ad Placeholder -->
-        <div class="ad-placeholder h-20 w-full rounded-lg">AdSense Top Banner Ad (728x90)</div>
+        <div class="ad-placeholder h-20 w-full rounded-lg mb-6">AdSense Top Banner Ad (728x90)</div>
 
-        <!-- Form -->
+        <!-- Form Inputs -->
         <div class="space-y-6">
+
             <div>
                 <label for="topicInput" class="block text-sm font-medium text-gray-700 mb-2">Purpose of Letter/Email</label>
                 <input type="text" id="topicInput" placeholder="e.g., Requesting a raise" class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500" required>
@@ -86,18 +57,18 @@
 
             <div class="flex flex-col sm:flex-row gap-6">
                 <div class="flex-1">
-                    <label for="toneSelect" class="block text-sm font-medium text-gray-700 mb-2">Tone</label>
+                    <label for="toneSelect" class="block text-sm font-medium text-gray-700 mb-2">Select Tone</label>
                     <select id="toneSelect" class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500">
                         <option value="Professional">Professional</option>
-                        <option value="Formal">Formal and Strict</option>
-                        <option value="Friendly">Friendly</option>
-                        <option value="Persuasive">Persuasive</option>
-                        <option value="Sympathetic">Sympathetic</option>
-                        <option value="Humorous">Humorous</option>
+                        <option value="Formal">Formal & Strict</option>
+                        <option value="Friendly">Casual & Friendly</option>
+                        <option value="Persuasive">Persuasive & Assertive</option>
+                        <option value="Sympathetic">Sympathetic & Soft</option>
+                        <option value="Humorous">Humorous & Lighthearted</option>
                     </select>
                 </div>
                 <div class="flex-1">
-                    <label for="lengthSelect" class="block text-sm font-medium text-gray-700 mb-2">Length</label>
+                    <label for="lengthSelect" class="block text-sm font-medium text-gray-700 mb-2">Select Length</label>
                     <select id="lengthSelect" class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500">
                         <option value="Short">Short (2-3 paragraphs)</option>
                         <option value="Medium">Medium (3-4 paragraphs)</option>
@@ -108,7 +79,7 @@
 
             <div>
                 <label for="detailsInput" class="block text-sm font-medium text-gray-700 mb-2">Key Details</label>
-                <textarea id="detailsInput" rows="4" placeholder="e.g., To my boss John Smith, I started in 2020, and I need a 10% raise." class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500"></textarea>
+                <textarea id="detailsInput" rows="4" placeholder="e.g., To my boss John Smith, I started in 2020, need a 10% raise." class="w-full p-3 border-2 border-gray-300 rounded-lg text-gray-700 focus:border-blue-500"></textarea>
             </div>
 
             <button id="generateBtn" class="w-full py-3 bg-blue-600 text-white font-bold text-lg rounded-lg shadow-md hover:bg-blue-700 transition duration-200 flex items-center justify-center">
@@ -116,17 +87,17 @@
             </button>
         </div>
 
-        <!-- Output -->
+        <!-- Output Card -->
         <div class="mt-10">
             <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Your AI Draft:</h2>
             <div id="outputCard" class="bg-gray-50 p-6 rounded-xl shadow-inner border border-gray-200 min-h-[250px] whitespace-pre-wrap">
                 <p id="outputContent" class="text-gray-700 leading-relaxed italic">
-                    Your generated letter or email will appear here. Fill out the form above!
+                    Your generated letter or email will appear here. Start by filling out the form above!
                 </p>
             </div>
 
             <button id="copyBtn" class="mt-4 w-full py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-200" style="display:none;">
-                Copy Draft
+                Copy Draft to Clipboard
             </button>
         </div>
 
@@ -139,13 +110,49 @@
             <span class="text-xs text-gray-400">|</span>
             <a href="contact_us.html" class="text-xs text-blue-600 hover:text-blue-800 mx-2">Contact Us</a>
         </div>
-
+        
         <p class="text-xs text-gray-400 text-center mt-4">Powered by Gemini AI</p>
     </div>
 
+    <!-- FAQ Section -->
+    <div class="w-full max-w-2xl bg-white shadow-2xl rounded-xl p-6 sm:p-10 mt-12 border-t-8 border-blue-600">
+        <h2 class="text-2xl font-bold text-blue-700 mb-6 text-center">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <div>
+                <h3 class="font-semibold text-gray-800">1. What is an AI letter generator?</h3>
+                <p class="text-gray-600 mt-1">
+                    An AI letter generator is an online tool that uses artificial intelligence to create professional letters and emails automatically based on your input.
+                </p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-800">2. How can I use this AI email generator?</h3>
+                <p class="text-gray-600 mt-1">
+                    Enter the purpose, select tone and length, add details, and click "Generate Draft" to get a professional letter instantly.
+                </p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-800">3. Is this AI letter generator free?</h3>
+                <p class="text-gray-600 mt-1">Yes! You can generate as many letters and emails as you want for free.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-800">4. Can I use the letters professionally?</h3>
+                <p class="text-gray-600 mt-1">Absolutely! The generated letters are suitable for work, school, or business correspondence.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-800">5. Does this tool store my personal information?</h3>
+                <p class="text-gray-600 mt-1">No, all information is used temporarily to generate the letter and is not saved.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-800">6. Can I copy the generated letter?</h3>
+                <p class="text-gray-600 mt-1">Yes! Click the "Copy Draft" button to paste it anywhere, like email or Word document.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        const apiKey = ""; // Paste your Gemini AI API Key here
+        const apiKey = ""; // Paste your Gemini AI API key here
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
         const topicInput = document.getElementById('topicInput');
         const toneSelect = document.getElementById('toneSelect');
         const lengthSelect = document.getElementById('lengthSelect');
@@ -162,56 +169,65 @@
         }
 
         function showCustomMessage(message, isError=false){
-            const tempDiv=document.createElement('div');
-            tempDiv.textContent=message;
-            const bgColor=isError?'bg-red-600':'bg-green-600';
-            tempDiv.className=`fixed bottom-4 left-1/2 transform -translate-x-1/2 ${bgColor} text-white px-4 py-2 rounded-lg shadow-xl z-50 transition-opacity duration-300`;
+            const tempDiv = document.createElement('div');
+            tempDiv.textContent = message;
+            const bgColor = isError?'bg-red-600':'bg-green-600';
+            tempDiv.className = `fixed bottom-4 left-1/2 transform -translate-x-1/2 ${bgColor} text-white px-4 py-2 rounded-lg shadow-xl z-50 transition-opacity duration-300`;
             document.body.appendChild(tempDiv);
-            setTimeout(()=>{tempDiv.remove();},3000);
+            setTimeout(()=>{ tempDiv.remove(); }, 3000);
         }
 
         function copyDraft(){
-            const textToCopy=outputContent.textContent.trim();
-            const tempInput=document.createElement('textarea');
+            const textToCopy = outputContent.textContent.trim();
+            const tempInput = document.createElement('textarea');
             document.body.appendChild(tempInput);
-            tempInput.value=textToCopy;
+            tempInput.value = textToCopy;
             tempInput.select();
-            try{document.execCommand('copy');showCustomMessage('Draft copied!');}
-            catch{showCustomMessage('Copy failed',true);}
-            finally{document.body.removeChild(tempInput);}
+            try { document.execCommand('copy'); showCustomMessage('Draft copied!'); }
+            catch { showCustomMessage('Copy failed', true); }
+            finally { document.body.removeChild(tempInput); }
         }
 
         async function fetchDraft(){
-            const topic=topicInput.value.trim();
-            const tone=toneSelect.value;
-            const length=lengthSelect.value;
-            const details=detailsInput.value.trim();
-            if(!topic){showCustomMessage("Enter purpose of letter/email.",true); return;}
+            const topic = topicInput.value.trim();
+            const tone = toneSelect.value;
+            const length = lengthSelect.value;
+            const details = detailsInput.value.trim();
+
+            if(!topic){ showCustomMessage("Enter purpose of letter/email.", true); return; }
+
             showLoading(true);
-            outputContent.textContent='Generating draft...';
-            copyBtn.style.display='none';
-            const systemPrompt=`You are a professional correspondence writer. Generate a ${tone} letter of ${length} including all user details.`;
-            const userQuery=`Purpose: "${topic}". Details: "${details || 'No details provided.'}"`;
-            const payload={contents:[{parts:[{text:userQuery}]}],systemInstruction:{parts:[{text:systemPrompt}]}};
-            let attempts=0,maxAttempts=3,delay=1000,resultText="Error: Failed to generate draft.";
+            outputContent.textContent = 'Generating draft...';
+            copyBtn.style.display = 'none';
+
+            const systemPrompt = `You are a professional correspondence writer. Generate a ${tone} letter of ${length} including all user details.`;
+            const userQuery = `Purpose: "${topic}". Details: "${details || 'No details provided.'}"`;
+
+            const payload = { contents: [{ parts: [{ text: userQuery }] }], systemInstruction: { parts: [{ text: systemPrompt }] } };
+
+            let attempts=0, maxAttempts=3, delay=1000, resultText="Error: Failed to generate draft.";
             while(attempts<maxAttempts){
                 try{
-                    const response=await fetch(apiUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-                    if(!response.ok){if(response.status===429){attempts++;if(attempts<maxAttempts){await new Promise(r=>setTimeout(r,delay));delay*=2;continue;}}throw new Error(`API status: ${response.status}`);}
-                    const result=await response.json();
-                    resultText=(result.candidates?.[0]?.content?.parts?.[0]?.text||resultText).trim();
+                    const response = await fetch(apiUrl, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+                    if(!response.ok){
+                        if(response.status===429){ attempts++; if(attempts<maxAttempts){ await new Promise(r=>setTimeout(r,delay)); delay*=2; continue; } }
+                        throw new Error(`API status: ${response.status}`);
+                    }
+                    const result = await response.json();
+                    resultText = (result.candidates?.[0]?.content?.parts?.[0]?.text || resultText).trim();
                     break;
-                }catch(error){attempts++;if(attempts<maxAttempts){await new Promise(r=>setTimeout(r,delay));delay*=2;}}
+                }catch{ attempts++; if(attempts<maxAttempts){ await new Promise(r=>setTimeout(r,delay)); delay*=2; } }
             }
+
             showLoading(false);
-            if(resultText&&!resultText.startsWith("Error:")){outputContent.textContent=resultText;copyBtn.style.display='block';}
-            else{outputContent.textContent="Error: Could not connect to AI. Check API key.";showCustomMessage("Failed to generate draft.",true);}
+            if(resultText && !resultText.startsWith("Error:")){ outputContent.textContent = resultText; copyBtn.style.display='block'; }
+            else { outputContent.textContent = "Error: Could not connect to AI. Check API key."; showCustomMessage("Failed to generate draft.", true); }
         }
 
-        window.onload=()=>{
-            generateBtn.addEventListener('click',fetchDraft);
-            copyBtn.addEventListener('click',copyDraft);
-            outputContent.textContent="Enter purpose & details above to generate your first draft.";
+        window.onload = () => {
+            generateBtn.addEventListener('click', fetchDraft);
+            copyBtn.addEventListener('click', copyDraft);
+            outputContent.textContent = "Enter purpose & details above to generate your first draft.";
         };
     </script>
 </body>
