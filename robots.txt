@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://srajesh1330.github.io/letter-generator/sitemap.xml
